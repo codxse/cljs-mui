@@ -4,6 +4,19 @@ A ClojureScript Material-UI wrapper.
 
 `Material-UI v3.2.0`
 
+[![Clojars Project](https://img.shields.io/clojars/v/id.nadiar/cljs-mui.svg)](https://clojars.org/id.nadiar/cljs-mui)
+
+
+#### Leiningen/Boot
+```
+[id.nadiar/cljs-mui "0.1.0-SNAPSHOT"]
+```
+#### Clojure CLI/deps.edn
+```
+id.nadiar/cljs-mui {:mvn/version "0.1.0-SNAPSHOT"}
+```
+
+
 ## Usage
 
 In progress library. Pull request are welcomed.
