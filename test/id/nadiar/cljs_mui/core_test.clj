@@ -33,3 +33,13 @@
   [tags]
   (->> (map #(str "(defn " % " [& args] (into-material-icon \"" % "\" args))") tags)
        (map read-string)))
+
+(defn- generate-fulcro-components
+  [tags]
+  (->> (map #(str "(def " % " (component-factory (aget js/MaterialUI \"" % "\")))") tags)
+       (map read-string)))
+
+(defn- generate-fulcro-icons
+  [tags]
+  (->> (map #(str "(def " % " (component-factory (aget js/MaterialUIIcons \"" % "\")))") tags)
+       (map read-string)))

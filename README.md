@@ -9,13 +9,12 @@ A ClojureScript Material-UI wrapper.
 
 #### Leiningen/Boot
 ```
-[id.nadiar/cljs-mui "0.1.0-alpha1"]
+[id.nadiar/cljs-mui "0.1.0-alpha2"]
 ```
 #### Clojure CLI/deps.edn
 ```
-id.nadiar/cljs-mui {:mvn/version "0.1.0-SNAPSHOT"}
+id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha2"}
 ```
-
 
 ## Usage
 
@@ -52,7 +51,7 @@ Example (reagent)
 
 ## License
 
-Copyright © 2018 FIXME
+Copyright © 2018
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
