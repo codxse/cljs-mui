@@ -9,7 +9,7 @@ A ClojureScript Material-UI wrapper.
 
 #### Leiningen/Boot
 ```
-[id.nadiar/cljs-mui "0.1.0-SNAPSHOT"]
+[id.nadiar/cljs-mui "0.1.0-alpha1"]
 ```
 #### Clojure CLI/deps.edn
 ```
