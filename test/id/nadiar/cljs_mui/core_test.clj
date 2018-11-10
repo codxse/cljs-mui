@@ -26,10 +26,10 @@
 
 (defn- generate-components
   [tags]
-  (->> (map #(str "(defn " % " [& args] (into-material-component " % "))") tags)
+  (->> (map #(str "(defn " % " [& args] (into-material-component \"" % "\" args))") tags)
        (map read-string)))
 
 (defn- generate-icons
   [tags]
-  (->> (map #(str "(defn " % " [& args] (into-material-icon " % "))") tags)
+  (->> (map #(str "(defn " % " [& args] (into-material-icon \"" % "\" args))") tags)
        (map read-string)))
