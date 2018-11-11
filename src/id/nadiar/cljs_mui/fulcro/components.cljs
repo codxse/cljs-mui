@@ -1,4 +1,5 @@
 (ns id.nadiar.cljs-mui.fulcro.components
+  (:refer-clojure :exclude [List])
   (:require [material-ui]
             [id.nadiar.cljs-mui.fulcro.utils :refer [component-factory]]))
 
