@@ -9,11 +9,11 @@ A ClojureScript Material-UI wrapper.
 
 #### Leiningen/Boot
 ```
-[id.nadiar/cljs-mui "0.1.0-alpha2a"]
+[id.nadiar/cljs-mui "0.1.0-alpha3"]
 ```
 #### Clojure CLI/deps.edn
 ```
-id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha2a"}
+id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha3"}
 ```
 
 ## Usage
@@ -26,14 +26,14 @@ In progress library. Pull request are welcomed.
           [id.nadiar.cljs-mui.style :as style])
 ```
 
-Example (reagent)
+Reagent example
 
 ```Clojure
 (defn custom-styles [theme]
- (clj->js
-   {:button {:margin (.. theme -spacing -unit)}
-    :textField {:marginLeft (.. theme -spacing -unit)
-                :marginRight (.. theme -spacing -unit)}}))
+  (clj->js
+    {:button {:margin (-> theme .-spacing .-unit)}
+     :textField {:marginLeft (-> theme .-spacing .-unit)
+                 :marginRight (-> theme .-spacing .-unit)}}))
                 
 (def with-my-styles (style/with-styles custom-styles))                
                 
@@ -48,6 +48,34 @@ Example (reagent)
   [:div
    [:> (with-my-styles (reagent.core/reactify-component my-button))]])                
 ```
+
+Fulcro example 
+
+```Clojure
+
+(defn get-class 
+  [this id] 
+  (aget (-> this .-props .-classes) (name id))
+  
+
+(fulcro.client.primitives/defsc MyButton 
+  [this props]
+  {}
+  (mui/Button {:variant "contained" 
+               :color "primary" 
+               :className (get-class this :button} 
+    "Hello World! 
+    (mui/ZoomOutTwoTone)))
+    
+(def my-button (fulcro.client.primitives/factory
+                 ((style/with-style (fn [theme] 
+                                      (clj->js {:button {:margin (-> theme .-spacing .-unit)} 
+                                                :textField {:marginLeft (-> theme .-spacing .-unit)} 
+                                                            :marginRight (-> theme .-spacing .-unit)}))) 
+                  MyButton)))     
+```
+
+Fulcro example, thanks to [Souenzzo](https://gist.github.com/souenzzo/7f376efca955660e6221bca7827164ba)
 
 ## License
 

@@ -3,11 +3,9 @@
 
 (def mui-colors (js->clj (aget js/MaterialUI "colors")))
 
-(def withStyles (aget js/MaterialUI "withStyles"))
+(def with-style (aget js/MaterialUI "withStyles"))
 
-(def createMuiTheme (aget js/MaterialUI "createMuiTheme"))
-
-(def with-style withStyles)
+(def create-mui-theme (aget js/MaterialUI "createMuiTheme"))
 
 (defn color-for
   "Get the color from Material color db.
