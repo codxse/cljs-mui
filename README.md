@@ -64,15 +64,15 @@ Fulcro example
   (mui/Button {:variant "contained" 
                :color "primary" 
                :className (get-class this :button} 
-    "Hello World! 
-    (mui/ZoomOutTwoTone)))
+    "Hello World!" 
+    (mui/ZoomOutTwoTone))))
     
 (def my-button (fulcro.client.primitives/factory
                  ((style/with-style (fn [theme] 
                                       (clj->js {:button {:margin (-> theme .-spacing .-unit)} 
                                                 :textField {:marginLeft (-> theme .-spacing .-unit)} 
                                                             :marginRight (-> theme .-spacing .-unit)}))) 
-                  MyButton)))     
+                  MyButton)))   
 ```
 
 Fulcro example, thanks to [Souenzzo](https://gist.github.com/souenzzo/7f376efca955660e6221bca7827164ba)
