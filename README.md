@@ -42,7 +42,7 @@ Reagent example
                :color "primary"
                :className (.-button classes)}
    "Hello World!"
-   [icon/ZoomOutTwoTone]])
+   [icon/ZoomOut]])
                 
 (defn hello-world []
   [:div
@@ -53,26 +53,25 @@ Fulcro example
 
 ```Clojure
 
-(defn get-class 
-  [this id] 
-  (aget (-> this .-props .-classes) (name id))
-  
+(defn get-class
+  [this id]
+  (aget (-> this .-props .-classes) (name id)))
 
-(fulcro.client.primitives/defsc MyButton 
-  [this props]
-  {}
-  (mui/Button {:variant "contained" 
-               :color "primary" 
-               :className (get-class this :button} 
-    "Hello World!" 
-    (mui/ZoomOutTwoTone))))
-    
+(fulcro.client.primitives/defsc MyButton
+                                [this props]
+                                {}
+                                (mui/Button {:variant   "contained"
+                                             :color     "primary"
+                                             :className (get-class this :button)}
+                                            "Hello World!"
+                                            (icon/ZoomOut)))
+
 (def my-button (fulcro.client.primitives/factory
-                 ((style/with-style (fn [theme] 
-                                      (clj->js {:button {:margin (-> theme .-spacing .-unit)} 
-                                                :textField {:marginLeft (-> theme .-spacing .-unit)} 
-                                                            :marginRight (-> theme .-spacing .-unit)}))) 
-                  MyButton)))   
+                 ((style/with-style (fn [theme]
+                                      (clj->js {:button {:margin (-> theme .-spacing .-unit)}
+                                                :textField {:marginLeft (-> theme .-spacing .-unit)}
+                                                :marginRight (-> theme .-spacing .-unit)})))
+                   MyButton)))  
 ```
 
 Fulcro example, thanks to [Souenzzo](https://gist.github.com/souenzzo/7f376efca955660e6221bca7827164ba)
