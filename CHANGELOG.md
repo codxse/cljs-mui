@@ -1,8 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## "0.1.0-alpha4" - 2018-11-25
+### Fexed
+- Readme example
+
+### Added
+- default `theme` and `with-style` function. `class-name` funtion helper.
+
 ## "0.1.0-alpha3" - 2018-11-19
+### Removed
 - Remove `fulcro` dependency, `id.nadiar.cljs-mui.fulcro.components`, and `id.nadiar.cljs-mui.fulcro.icons`.
+
+### Added
 - Add `fulcro` example on README.md
 
 ## "0.1.0-alpha2a" - 2018-11-11

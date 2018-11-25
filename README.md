@@ -1,6 +1,6 @@
 # CLJS-MUI
 
-A ClojureScript Material-UI wrapper. 
+A ClojureScript Material-UI wrapper.
 
 `Material-UI v3.2.0`
 
@@ -9,11 +9,11 @@ A ClojureScript Material-UI wrapper.
 
 #### Leiningen/Boot
 ```
-[id.nadiar/cljs-mui "0.1.0-alpha3"]
+[id.nadiar/cljs-mui "0.1.0-alpha4"]
 ```
 #### Clojure CLI/deps.edn
 ```
-id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha3"}
+id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha4"}
 ```
 
 ## Usage
@@ -21,56 +21,50 @@ id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha3"}
 In progress library. Pull request are welcomed.
 
 ```Clojure
-(:require [id.nadiar.cljs-mui.core :as mui] 
-          [id.nadiar.cljs-mui.icons :as icon] 
-          [id.nadiar.cljs-mui.style :as style])
+(:require [id.nadiar.cljs-mui.core :as mui]
+          [id.nadiar.cljs-mui.icons :as icon]
+          [id.nadiar.cljs-mui.style :refer [theme] :as style]
+          [goog.object :as gobj])
 ```
 
 Reagent example
 
 ```Clojure
-(defn custom-styles [theme]
-  (clj->js
-    {:button {:margin (-> theme .-spacing .-unit)}
-     :textField {:marginLeft (-> theme .-spacing .-unit)
-                 :marginRight (-> theme .-spacing .-unit)}}))
-                
+(def custom-style
+  {:button {:margin (gobj/getValueByKeys theme "spacing" "unit")}
+   :textField {:marginLeft (gobj/getValueByKeys theme "spacing" "unit")
+               :marginRight (gobj/getValueByKeys theme "spacing" "unit")}})
+
 (def with-my-styles (style/with-styles custom-styles))                
-                
+
 (defn my-button [{:keys [classes] :as props}]
   [mui/Button {:variant "contained"
                :color "primary"
                :className (.-button classes)}
    "Hello World!"
    [icon/ZoomOut]])
-                
+
 (defn hello-world []
   [:div
    [:> (with-my-styles (reagent.core/reactify-component my-button))]])                
 ```
 
-Fulcro example 
+Fulcro example
 
 ```Clojure
-
-(defn get-class
-  [this id]
-  (aget (-> this .-props .-classes) (name id)))
-
 (fulcro.client.primitives/defsc MyButton
                                 [this props]
                                 {}
                                 (mui/Button {:variant   "contained"
                                              :color     "primary"
-                                             :className (get-class this :button)}
+                                             :className (style/class-name this :button)}
                                             "Hello World!"
                                             (icon/ZoomOut)))
 
 (def my-button (fulcro.client.primitives/factory
-                 ((style/with-style (fn [theme]
-                                      (clj->js {:button {:margin (-> theme .-spacing .-unit)}
-                                                :textField {:marginLeft (-> theme .-spacing .-unit)}
-                                                :marginRight (-> theme .-spacing .-unit)})))
+                 ((style/with-style {:button {:margin (gobj/getValueByKeys theme "spacing" "unit")}
+                                     :textField {:marginLeft (gobj/getValueByKeys theme "spacing" "unit")
+                                                 :marginRight (gobj/getValueByKeys theme "spacing" "unit")}})
                    MyButton)))  
 ```
 
