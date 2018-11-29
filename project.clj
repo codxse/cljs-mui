@@ -1,4 +1,4 @@
-(defproject id.nadiar/cljs-mui "0.1.0-alpha4"
+(defproject id.nadiar/cljs-mui "0.1.0-alpha4.1-snapshot2"
   :description "A Material UI wrapper for ClojureScript"
   :url "https://github.com/codxse/cljs-mui"
   :license {:name "Eclipse Public License"

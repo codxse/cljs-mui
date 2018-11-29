@@ -1,6 +1,6 @@
 (ns id.nadiar.cljs-mui.core
-  (:require [material-ui]
-            [id.nadiar.cljs-mui.utils :refer [component-factory]]))
+  (:refer-clojure :exclude [List])
+  (:require [id.nadiar.cljs-mui.utils :refer [component-factory]]))
 
 (def into-material-component (partial component-factory js/MaterialUI))
 
