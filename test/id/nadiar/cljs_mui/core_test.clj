@@ -24,22 +24,17 @@
 (def ^{:private true} component-tags (read-string (slurp "component-api.edn")))
 (def ^{:private true} component-icons (read-string (slurp "component-icons.edn")))
 
+(defn- cammel->kebab
+  [tname]
+  (->> (rest (clojure.string/replace tname #"[A-Z]" #(str "-" (clojure.string/lower-case %1))))
+       (apply str)))
+
 (defn- generate-components
   [tags]
-  (->> (map #(str "(defn " % " [& args] (into-material-component \"" % "\" args))") tags)
+  (->> (map #(str "(defn " (cammel->kebab %) " [& args] (into-material-component \"" % "\" args))") tags)
        (map read-string)))
 
 (defn- generate-icons
   [tags]
-  (->> (map #(str "(defn " % " [& args] (into-material-icon \"" % "\" args))") tags)
-       (map read-string)))
-
-(defn- generate-fulcro-components
-  [tags]
-  (->> (map #(str "(def " % " (component-factory (aget js/MaterialUI \"" % "\")))") tags)
-       (map read-string)))
-
-(defn- generate-fulcro-icons
-  [tags]
-  (->> (map #(str "(def " % " (component-factory (aget js/MaterialUIIcons \"" % "\")))") tags)
+  (->> (map #(str "(defn " (cammel->kebab %) " [& args] (into-material-icon \"" % "\" args))") tags)
        (map read-string)))

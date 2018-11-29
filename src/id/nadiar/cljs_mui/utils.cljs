@@ -1,5 +1,4 @@
-(ns id.nadiar.cljs-mui.utils
-  (:require [cljsjs.react]))
+(ns id.nadiar.cljs-mui.utils)
 
 (defn component-factory
   ([react-class args]

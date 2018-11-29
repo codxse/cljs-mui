@@ -2,26 +2,29 @@
 
 A ClojureScript Material-UI wrapper.
 
-`Material-UI v3.2.0`
+`material-ui v3.2.0`
+`material-ui-icon v3.0.1-0`
 
 [![Clojars Project](https://img.shields.io/clojars/v/id.nadiar/cljs-mui.svg)](https://clojars.org/id.nadiar/cljs-mui)
 
 
 #### Leiningen/Boot
 ```
-[id.nadiar/cljs-mui "0.1.0-alpha4"]
+[id.nadiar/cljs-mui "0.1.0-alpha4.1"]
 ```
 #### Clojure CLI/deps.edn
 ```
-id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha4"}
+id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha4.1"}
 ```
 
 ## Usage
 
-In progress library. Pull request are welcomed.
+From `0.1.0-alpha4.1` above, you have to add react, material-ui, and material-ui-icons manually. If you are using reagent or fulcro, the react is already bundled.
 
 ```Clojure
-(:require [id.nadiar.cljs-mui.core :as mui]
+(:require [material-ui]
+          [material-ui-icons]
+          [id.nadiar.cljs-mui.core :as mui]
           [id.nadiar.cljs-mui.icons :as icon]
           [id.nadiar.cljs-mui.style :refer [theme] :as style]
           [goog.object :as gobj])
@@ -42,7 +45,7 @@ Reagent example
                :color "primary"
                :className (.-button classes)}
    "Hello World!"
-   [icon/ZoomOut]])
+   [icon/zoom-uut]])
 
 (defn hello-world []
   [:div
@@ -55,11 +58,11 @@ Fulcro example
 (fulcro.client.primitives/defsc MyButton
                                 [this props]
                                 {}
-                                (mui/Button {:variant   "contained"
+                                (mui/button {:variant   "contained"
                                              :color     "primary"
                                              :className (style/class-name this :button)}
                                             "Hello World!"
-                                            (icon/ZoomOut)))
+                                            (icon/zoom-out)))
 
 (def my-button (fulcro.client.primitives/factory
                  ((style/with-style {:button {:margin (gobj/getValueByKeys theme "spacing" "unit")}
