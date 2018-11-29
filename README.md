@@ -45,7 +45,7 @@ Reagent example
                :color "primary"
                :className (.-button classes)}
    "Hello World!"
-   [icon/zoom-uut]])
+   [icon/zoom-out]])
 
 (defn hello-world []
   [:div
