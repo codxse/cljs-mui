@@ -1,4 +1,5 @@
 (ns id.nadiar.cljs-mui.icons
+  (:refer-clojure :exclude [List Repeat])
   (:require [id.nadiar.cljs-mui.utils :refer [component-factory]]))
 
 (def into-material-icon (partial component-factory js/MaterialUIIcons))
