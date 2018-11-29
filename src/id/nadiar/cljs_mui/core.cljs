@@ -1,6 +1,5 @@
 (ns id.nadiar.cljs-mui.core
-  (:require [material-ui]
-            [id.nadiar.cljs-mui.utils :refer [component-factory]]))
+  (:require [id.nadiar.cljs-mui.utils :refer [component-factory]]))
 
 (def into-material-component (partial component-factory js/MaterialUI))
 

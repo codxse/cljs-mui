@@ -1,6 +1,5 @@
 (ns id.nadiar.cljs-mui.style
-  (:require [material-ui]
-            [goog.object :as gobj]))
+  (:require [goog.object :as gobj]))
 
 (def mui-colors (js->clj (aget js/MaterialUI "colors")))
 
