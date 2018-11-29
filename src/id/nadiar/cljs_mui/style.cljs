@@ -1,11 +1,11 @@
 (ns id.nadiar.cljs-mui.style
   (:require [goog.object :as gobj]))
 
-(def mui-colors (js->clj (aget js/MaterialUI "colors")))
+(def mui-colors (js->clj (gobj/get js/MaterialUI "colors")))
 
-(def withStyle (aget js/MaterialUI "withStyles"))
+(def withStyles (gobj/get js/MaterialUI "withStyles"))
 
-(def createMuiTheme (aget js/MaterialUI "createMuiTheme"))
+(def createMuiTheme (gobj/get js/MaterialUI "createMuiTheme"))
 
 (defn color-for
   "Get the color from Material color db.
@@ -32,10 +32,10 @@
   (assert (or (string? id) (keyword? id)) "`id` must be string or keyword.")
   (gobj/getValueByKeys component "props" "classes" (name id)))
 
-(def theme (create-mui-theme {}))
+(def theme (create-mui-theme {:typography {:useNextVariants true}}))
 
 (defn with-style
   "Return mui withStyle fn. Accept clojure map as argument."
   [m]
   (assert (map? m) "`m` must be valid clojure map.")
-  (withStyle (clj->js m)))
+  (withStyles (clj->js m)))
