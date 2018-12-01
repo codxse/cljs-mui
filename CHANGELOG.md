@@ -1,8 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## "0.1.0-alpha4.2" - 2018-21-1
+- Fixed bug for multiple children/node not rendered.
+
+## "0.1.0-alpha4.1" - 2018-11-30
+### Removed
+- Remove `cammelCase` for component and icon declaration.
+
+### Added
+- Add `kebab-case` support for component and icon declaration.
+
 ## "0.1.0-alpha4" - 2018-11-25
-### Fexed
+### Fixed
 - Readme example
 
 ### Added
