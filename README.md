@@ -41,11 +41,11 @@ Reagent example
 (def with-my-styles (style/with-styles custom-styles))                
 
 (defn my-button [{:keys [classes] :as props}]
-  [mui/Button {:variant "contained"
+  [mui/button {:variant "contained"
                :color "primary"
                :className (.-button classes)}
    "Hello World!"
-   [icon/zoom-uut]])
+   [icon/zoom-out]])
 
 (defn hello-world []
   [:div
