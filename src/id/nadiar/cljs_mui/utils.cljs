@@ -1,4 +1,5 @@
-(ns id.nadiar.cljs-mui.utils)
+(ns id.nadiar.cljs-mui.utils
+  (:require [goog.object :as gobj]))
 
 (defn component-factory
   ([react-class args]
@@ -9,4 +10,4 @@
                        (cons {} args))]
      (apply js/React.createElement react-class (clj->js attr) nodes)))
   ([root-obj type args]
-   (component-factory (aget root-obj type) args)))
+   (component-factory (gobj/get root-obj type) args)))
