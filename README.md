@@ -10,11 +10,11 @@ A ClojureScript Material-UI wrapper.
 
 #### Leiningen/Boot
 ```
-[id.nadiar/cljs-mui "0.1.0-alpha4.2-1"]
+[id.nadiar/cljs-mui "0.1.0-alpha5"]
 ```
 #### Clojure CLI/deps.edn
 ```
-id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha4.2-1"}
+id.nadiar/cljs-mui {:mvn/version "0.1.0-alpha5"}
 ```
 
 ## Usage
