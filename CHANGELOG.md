@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
+## "0.1.0-beta2" - 2019-01-25
+- Fixed clojure warning with same name with material icons.
+
 ## "0.1.0-alpha4.2" - 2018-12-22
 - Fixed bug with advanced compilation doesn't accept `assert`
 

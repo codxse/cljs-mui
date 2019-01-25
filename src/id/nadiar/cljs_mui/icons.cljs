@@ -1,5 +1,5 @@
 (ns id.nadiar.cljs-mui.icons
-  (:refer-clojure :exclude [list repeat])
+  (:refer-clojure :exclude [list repeat compare filter loop map print remove shuffle sort update])
   (:require [id.nadiar.cljs-mui.utils :refer [component-factory]]))
 
 (def into-material-icon (partial component-factory js/MaterialUIIcons))
